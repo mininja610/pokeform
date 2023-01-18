@@ -43,6 +43,9 @@ class Pokemon extends Model
 {
     return $this->belongsToMany(Move::class);
 }
-                    
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}                
 }
 
