@@ -13,8 +13,15 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('HOME') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('party')" :active="request()->routeIs('party')">
+                         {{ __('パーティー管理') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('party.show',['party' =>'4'])" >
+                         {{ __('パーティー管理') }}
+                    </x-nav-link>
+                  <h1>Pokeform</h1>
                 </div>
             </div>
 
