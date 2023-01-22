@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PartyController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,16 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::controller(PartyController::class)->middleware(['auth'])->group(function(){
+    
+    Route::get('/parties/create', 'create')->name('party.create');
+    Route::post('/parties/', 'store')->name('party.store');
+    Route::get('/parties/', 'party')->name('party');
+    Route::get('/parties/{party}', 'show')->name('party.show');
+    
+    
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
