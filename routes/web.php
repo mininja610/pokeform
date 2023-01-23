@@ -28,8 +28,11 @@ Route::controller(PartyController::class)->middleware(['auth'])->group(function(
     Route::get('/parties/create', 'create')->name('party.create');
     Route::post('/parties/', 'store')->name('party.store');
     Route::get('/parties/', 'party')->name('party');
+   
+    Route::get('/parties/{party}/edit', 'edit')->name('party.edit');
+    Route::put('/parties/{party}','update')->name('party.update');
     Route::get('/parties/{party}', 'show')->name('party.show');
-    
+    Route::delete('/parties/{party}', 'delete')->name('party.delete');
     
 });
 

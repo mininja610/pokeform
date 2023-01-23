@@ -17,18 +17,20 @@
             <div class='party'>
                 <h2 class='title'>{{ $party->title }}</h2>
                 <p class='body'>{{ $party->content }}</p>
-            <div>
+            <div class="party_pokemon">
+                <h3>ポケモン</h3>
                 <ul id = 'pokemon_list'>
                     @foreach($pokemons_id as $pokemon)
                     @foreach($pokemon->pokemons as $pokemon_name)
                          <li class = 'pokemon'>
-                             <h3>ポケモン</h3>
+                             
                              <p>{{$pokemon_name->name}}</p><h3 class='type_list'>{{$pokemon_name->primary_type}},{{$pokemon_name->secondary_type}}</h3>
                         </li>
                    @endforeach
                    @endforeach
                 </ul>    
             </div>
+            <div class="edit"><a href="/parties/{{ $party->id }}/edit">編集する</a></div>
             </div>
             @endif
         </div>

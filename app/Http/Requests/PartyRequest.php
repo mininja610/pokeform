@@ -26,6 +26,12 @@ class PartyRequest extends FormRequest
         return [
             'party.title' => 'required',
             'party.content' => 'required',
+            'p1' => 'required|different:p2,p3,p4,p5,p6',
+            'p2' => 'required|different:p1,p3,p4,p5,p6',
+            'p3' => 'required|different:p2,p1,p4,p5,p6',
+            'p4' => 'required|different:p2,p3,p1,p5,p6',
+            'p5' => 'required|different:p2,p3,p4,p1,p6',
+            'p6' => 'required|different:p2,p3,p4,p5,p1',
         ];
     }
 }
