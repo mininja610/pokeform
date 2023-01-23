@@ -24,12 +24,26 @@
                 <p class='body'>{{ $party->content }}</p>
                 <a href="/parties/{{ $party->id }}">確認する</a>
             </div>
+            <form action="/parties/{{ $party->id }}" id="form_{{ $party->id }}" method="post">
+             @csrf
+                @method('DELETE')
+                <button type="button" onclick="deletePost({{ $party->id }})">削除する</button> 
+            </form>
             @endif
             @endforeach
         </div>
         <div class='paginate'>
             {{ $parties->links() }}
         </div>
+        <script>
+    function deletePost(id) {
+        'use strict'
+
+        if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+            document.getElementById(`form_${id}`).submit();
+        }
+    }
+</script>
     </body>
     </x-app-layout>
 </html>
